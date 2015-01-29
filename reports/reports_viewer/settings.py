@@ -50,9 +50,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'reports.urls'
+ROOT_URLCONF = 'reports_viewer.urls'
 
-WSGI_APPLICATION = 'reports.wsgi.application'
+WSGI_APPLICATION = 'reports_viewer.wsgi.application'
 
 
 # Database
