@@ -61,7 +61,7 @@ class FrequentItemSet(models.Model):
     )
     jep = models.BooleanField(
         default=False,
-        db_column="jep"
+        db_column="ejp"
     )
     interesting = models.BooleanField(
         default=False
