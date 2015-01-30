@@ -1,4 +1,5 @@
 from django.db import models
+from .frequent_item_set_manager import FrequentItemSetManager
 
 
 class Operation(models.Model):
@@ -66,6 +67,9 @@ class FrequentItemSet(models.Model):
     interesting = models.BooleanField(
         default=False
     )
+
+    _base_manager = models.Manager()
+    objects = FrequentItemSetManager()
 
     class Meta:
         db_table = u'freq_itemsets'
