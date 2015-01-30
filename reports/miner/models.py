@@ -1,5 +1,7 @@
 from django.db import models
+
 from .frequent_item_set_manager import FrequentItemSetManager
+from .operations_manager import OperationManager
 
 
 class Operation(models.Model):
@@ -26,6 +28,9 @@ class Operation(models.Model):
         max_length=32,
         verbose_name="operation tag"
     )
+
+    _base_manager = models.Manager()
+    objects = OperationManager()
 
     class Meta:
         db_table = u'operations'
