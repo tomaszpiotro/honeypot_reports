@@ -7,5 +7,5 @@ install:
 
 script:
    - export SECRET_KEY='*tq*fbm!vihbcade==1&**lw#zvr7kxz6drfj!n-8ka*1j=9+b'
-   - cd reports_viewer
+   - cd reports
    - python manage.py test
