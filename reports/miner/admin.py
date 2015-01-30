@@ -1,9 +1,9 @@
 from django.contrib import admin
 
-from .models import FrequentItemSet
+from .models import FrequentItemSet, Operation
 
 
-class FrequentItemSetAdmin(admin.ModelAdmin):
+class MinerAdmin(admin.ModelAdmin):
     using = 'miner'
 
     def save_model(self, request, obj, form, change):
@@ -19,8 +19,15 @@ class FrequentItemSetAdmin(admin.ModelAdmin):
         return super(admin.ModelAdmin, self).formfield_for_foreignkey(
             db_field, request=request, using=self.using, **kwargs)
 
+
+class FrequentItemSetAdmin(MinerAdmin):
     list_display = ['id', 'remote_host', 'remote_port', 'count', 'protocol',
                     'operation']
 
 
+class OperationAdmin(MinerAdmin):
+    list_display = ['id', 'start', 'end', 'interval', 'tag']
+
+
 admin.site.register(FrequentItemSet, FrequentItemSetAdmin)
+admin.site.register(Operation, OperationAdmin)
