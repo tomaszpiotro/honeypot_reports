@@ -8,7 +8,16 @@ class SaveNotAllowedException(Exception):
     pass
 
 
-class Operation(models.Model):
+class SaveNotAllowedModel(models.Model):
+    class Meta:
+        abstract = True
+
+    def save(self, force_insert=False, force_update=False, using=None,
+             update_fields=None):
+        raise SaveNotAllowedException
+
+
+class Operation(SaveNotAllowedModel):
     start = models.DateTimeField(
         verbose_name="operation start time",
         db_column="start_time"
@@ -39,12 +48,8 @@ class Operation(models.Model):
     class Meta:
         db_table = u'operations'
 
-    def save(self, force_insert=False, force_update=False, using=None,
-             update_fields=None):
-        raise SaveNotAllowedException
 
-
-class FrequentItemSet(models.Model):
+class FrequentItemSet(SaveNotAllowedModel):
     operation = models.ForeignKey(
         Operation,
         verbose_name="operation",
@@ -86,7 +91,3 @@ class FrequentItemSet(models.Model):
 
     class Meta:
         db_table = u'freq_itemsets'
-
-    def save(self, force_insert=False, force_update=False, using=None,
-             update_fields=None):
-        raise SaveNotAllowedException
