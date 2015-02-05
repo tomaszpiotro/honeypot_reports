@@ -66,6 +66,7 @@ DATABASES = {
         'PASSWORD': 'qwerty1asd',
         'HOST': 'localhost',
         'PORT': '5432',
+        'TEST_DEPENDENCIES': ['miner']
     },
     'miner': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -74,6 +75,7 @@ DATABASES = {
         'PASSWORD': 'qwerty1asd',
         'HOST': 'localhost',
         'PORT': '5432',
+        'TEST_DEPENDENCIES': []
     }
 }
 
