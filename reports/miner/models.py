@@ -4,6 +4,10 @@ from .frequent_item_set_manager import FrequentItemSetManager
 from .operations_manager import OperationManager
 
 
+class SaveNotAllowedException(Exception):
+    pass
+
+
 class Operation(models.Model):
     start = models.DateTimeField(
         verbose_name="operation start time",
@@ -34,6 +38,10 @@ class Operation(models.Model):
 
     class Meta:
         db_table = u'operations'
+
+    def save(self, force_insert=False, force_update=False, using=None,
+             update_fields=None):
+        raise SaveNotAllowedException
 
 
 class FrequentItemSet(models.Model):
@@ -78,3 +86,7 @@ class FrequentItemSet(models.Model):
 
     class Meta:
         db_table = u'freq_itemsets'
+
+    def save(self, force_insert=False, force_update=False, using=None,
+             update_fields=None):
+        raise SaveNotAllowedException
