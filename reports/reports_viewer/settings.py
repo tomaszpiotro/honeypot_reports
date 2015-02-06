@@ -43,6 +43,7 @@ INSTALLED_APPS = (
 
     #internal
     'miner',
+    'reports',
 )
 
 MIDDLEWARE_CLASSES = (
