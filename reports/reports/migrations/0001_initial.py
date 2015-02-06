@@ -34,15 +34,10 @@ class Migration(migrations.Migration):
                 ('sixteen_hour_occurrences', models.IntegerField(verbose_name=b'sixteen hours window occurrences')),
                 ('total_occurrences', models.IntegerField(verbose_name=b'total previous occurrences')),
                 ('frequent_item_set', models.ForeignKey(verbose_name=b'frequent item sets', to='miner.FrequentItemSet', null=True)),
+                ('report', models.ForeignKey(verbose_name=b'report', to='reports.Report')),
             ],
             options={
             },
             bases=(models.Model,),
-        ),
-        migrations.AddField(
-            model_name='report',
-            name='items',
-            field=models.ManyToManyField(to='reports.ReportItem', verbose_name=b'report items'),
-            preserve_default=True,
         ),
     ]

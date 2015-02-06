@@ -40,6 +40,7 @@ INSTALLED_APPS = (
 
     # external
     'autofixture',
+    'django_extensions',
 
     #internal
     'miner',
