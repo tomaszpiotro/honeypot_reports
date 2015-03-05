@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<style>
+  body {background-color:lightgray}
+  h1   {color:blue}
+  p    {color:green}
+  table, th, td{ border: thin solid darkblue;
+                text-align: center;
+    border-collapse: collapse;
+    margin: auto;}
+</style>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+
+<table>
+    <tr>
+        <th>creation date</th>
+        <th>start date</th>
+        <th>end date</th>
+        <th>occurrences</th>
+        <th>new occurrences</th>
+    </tr>
+{% for object in object_list %}
+    <tr onclick="location.href='/reports/{{ object.id }}/'">
+        <td>{{ object.creation_date }}</td>
+        <td>{{ object.start_time }}</td>
+        <td>{{ object.end_time }}</td>
+        <td>{{ object.get_occurrences_number }}</td>
+        <td>{{ object.get_new_occurrences_number }}</td>
+
+    </tr>
+
+{% endfor %}
+
+</table>
+
+</body>
+</html>

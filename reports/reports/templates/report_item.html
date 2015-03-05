@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<style>
+  body {background-color:lightgray}
+  h1   {color:blue}
+  p    {color:green}
+  table, th, td{ border: thin solid darkblue;
+                text-align: center;
+    border-collapse: collapse;
+    margin: auto;}
+</style>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+
+<table>
+    <tr>
+        <th>frequent item set id</th>
+        <th>protocol</th>
+        <th>remote host </th>
+        <th>remote port </th>
+        <th>local host </th>
+        <th>local port </th>
+        <th>count </th>
+        <th>generator </th>
+        <th>jep </th>
+        <th>interesting </th>
+        <th>1h occurrences </th>
+
+    </tr>
+{% for item in items %}
+    <tr>
+        <td>{{ item.itemset.id }}</td>
+        <td>{{ item.itemset.protocol }}</td>
+        <td>{{ item.itemset.remote_host }}</td>
+        <td>{{ item.itemset.remote_port }}</td>
+        <td>{{ item.itemset.local_host }}</td>
+        <td>{{ item.itemset.local_port }}</td>
+        <td>{{ item.itemset.count }}</td>
+        <td>{{ item.itemset.generator }}</td>
+        <td>{{ item.itemset.jep }}</td>
+        <td>{{ item.itemset.interesting }}</td>
+        <td>{{ item.one_hour_occurrences }}</td>
+    </tr>
+{% endfor %}
+
+</table>
+
+</body>
+</html>
