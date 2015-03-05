@@ -48,6 +48,9 @@ class Operation(SaveNotAllowedModel):
     class Meta:
         db_table = u'operations'
 
+    def __str__(self):
+        return str(self.id) + " " + str(self.start) + " " + str(self.end)
+
 
 class FrequentItemSet(SaveNotAllowedModel):
     operation = models.ForeignKey(
@@ -92,6 +95,11 @@ class FrequentItemSet(SaveNotAllowedModel):
 
     class Meta:
         db_table = u'freq_itemsets'
+
+    def __str__(self):
+        return (str(self.id) + " " + str(self.protocol) + " "
+                + str(self.remote_host) + " " + str(self.remote_port) + " "
+                + str(self.local_port) + " " + str(self.count))
 
     def is_between_dates(self, upper_date, lower_date):
         return upper_date >= self.operation.start >= lower_date
