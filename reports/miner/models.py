@@ -53,7 +53,8 @@ class FrequentItemSet(SaveNotAllowedModel):
     operation = models.ForeignKey(
         Operation,
         verbose_name="operation",
-        db_column='oid'
+        db_column='oid',
+        related_name='item_set'
     )
     protocol = models.CharField(
         max_length=32,
