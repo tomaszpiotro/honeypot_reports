@@ -23,22 +23,28 @@ class ReportItem(models.Model):
         null=True
     )
     one_hour_occurrences = models.IntegerField(
-        verbose_name="one hour window occurrences"
+        verbose_name="one hour window occurrences",
+        default=0
     )
     two_hour_occurrences = models.IntegerField(
-        verbose_name="two hours window occurrences"
+        verbose_name="two hours window occurrences",
+        default=0
     )
     four_hour_occurrences = models.IntegerField(
-        verbose_name="four hours window occurrences"
+        verbose_name="four hours window occurrences",
+        default=0
     )
     eight_hour_occurrences = models.IntegerField(
-        verbose_name="eight hours window occurrences"
+        verbose_name="eight hours window occurrences",
+        default=0
     )
     sixteen_hour_occurrences = models.IntegerField(
-        verbose_name="sixteen hours window occurrences"
+        verbose_name="sixteen hours window occurrences",
+        default=0
     )
     total_occurrences = models.IntegerField(
-        verbose_name="total previous occurrences"
+        verbose_name="total previous occurrences",
+        default=0
     )
     report = models.ForeignKey(
         Report,
