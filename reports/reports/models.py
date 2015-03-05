@@ -46,7 +46,4 @@ class ReportItem(models.Model):
     )
 
     def is_seen_before(self):
-        occurrences = [self.one_hour_occurrences, self.two_hour_occurrences,
-                       self.four_hour_occurrences, self.eight_hour_occurrences,
-                       self.sixteen_hour_occurrences]
-        return any([occurrence > 0 for occurrence in occurrences])
+        return self.one_hour_occurrences > 0
