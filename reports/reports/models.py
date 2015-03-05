@@ -23,8 +23,7 @@ class Report(models.Model):
 
 
 class ReportItem(models.Model):
-    frequent_item_set = models.ForeignKey(
-        FrequentItemSet,
+    frequent_item_set = models.IntegerField(
         verbose_name="frequent item sets",
         null=True
     )
