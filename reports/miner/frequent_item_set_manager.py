@@ -2,7 +2,9 @@ from django.db import models
 
 
 class FrequentItemSetQuerySet(models.QuerySet):
-    pass
+    def between_dates(self, upper_date, lower_date):
+        return self.filter(operation__start__lte=upper_date,
+                           operation__end__gte=lower_date)
 
 
 class FrequentItemSetManager(models.Manager):

@@ -91,3 +91,6 @@ class FrequentItemSet(SaveNotAllowedModel):
 
     class Meta:
         db_table = u'freq_itemsets'
+
+    def is_between_dates(self, upper_date, lower_date):
+        return upper_date >= self.operation.start >= lower_date
