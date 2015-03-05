@@ -44,6 +44,8 @@ INSTALLED_APPS = (
 
     #internal
     'miner',
+    'mock',
+    'pytz',
     'reports',
 )
 
