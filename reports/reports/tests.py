@@ -5,7 +5,7 @@ from reports.models import ReportItem, Report
 
 class ReportItemTest(TestCase):
     def setUp(self):
-        self.report = autofixture.create_one(Report)
+        self.report = Report.objects.create(interval=1)
 
     def test_not_seen_before(self):
         report_item = autofixture.create_one(
