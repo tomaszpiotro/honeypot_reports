@@ -54,7 +54,10 @@ class ReportItem(models.Model):
     )
     report = models.ForeignKey(
         Report,
-        verbose_name="report"
+        verbose_name="report",
+        null=True,  # TODO REMOVE
+        blank=True,
+        related_name='items'
     )
 
     def is_seen_before(self):
