@@ -15,6 +15,12 @@ class Report(models.Model):
         verbose_name="Lower time bracket"
     )
 
+    def get_occurrences_number(self):
+        return len(self.items.all())
+
+    def get_new_occurrences_number(self):
+        return len(self.items.filter(one_hour_occurrences__gt=0))
+
 
 class ReportItem(models.Model):
     frequent_item_set = models.ForeignKey(
