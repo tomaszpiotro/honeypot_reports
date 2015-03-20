@@ -81,7 +81,7 @@ class ReportManager(models.Manager):
 
 class Report(models.Model):
     creation_date = models.DateTimeField(
-        verbose_name="report creation date",
+        verbose_name="creation date",
         auto_now_add=True
     )
     start_time = models.DateTimeField(
