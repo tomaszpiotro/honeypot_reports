@@ -94,10 +94,10 @@ class Report(models.Model):
     objects = ReportManager()
 
     def get_occurrences_number(self):
-        return len(self.items.all())
+        return self.items.all().count()
 
     def get_new_occurrences_number(self):
-        return len(self.items.filter(one_hour_occurrences__gt=0))
+        return self.items.filter(one_hour_occurrences__gt=0).count()
 
 
 class ReportItem(models.Model):
